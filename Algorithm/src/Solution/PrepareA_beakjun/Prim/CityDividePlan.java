@@ -1,7 +1,9 @@
+// 1647. 도시 분할 계획 (프림)
+package Solution.PrepareA_beakjun.Prim;
+
 import java.util.*;
 import java.io.*;
-
-public class Main {
+public class CityDividePlan {
     static int N, M;
     static int A, B, C;
     static boolean[] visited;
@@ -52,6 +54,7 @@ public class Main {
             visited[vertex] = true;
             totalWeight += weight;
 
+            // 방문한 정점 중에서 가장 큰 간선의 유지비 찾기
             if (maxWeight < weight) {
                 maxWeight = weight;
             }

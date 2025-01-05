@@ -1,8 +1,9 @@
-import java.util.*;
-import java.io.*;
+package Solution.PrepareA_beakjun.Prim;
 
-public class Main {
-    static int N, M;
+import java.io.*;
+import java.util.*;
+public class Conqueror {
+    static int N, M, t;
     static int A, B, C;
     static boolean[] visited;
     static ArrayList<ArrayList<int[]>> graph;
@@ -13,6 +14,7 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
+        t = Integer.parseInt(st.nextToken());
 
         visited = new boolean[N+1];
         graph = new ArrayList<>();
@@ -38,7 +40,7 @@ public class Main {
         pq.offer(new int[] {1, 0});
 
         long totalWeight = 0;
-        long maxWeight = 0;
+        long conquerCity = 0;
 
         while (!pq.isEmpty()) {
             int[] current = pq.poll();
@@ -50,21 +52,22 @@ public class Main {
             }
 
             visited[vertex] = true;
-            totalWeight += weight;
-
-            if (maxWeight < weight) {
-                maxWeight = weight;
+            if (vertex == 1) {
+                totalWeight += 0;
+            } else {
+                totalWeight += weight + conquerCity * t;
+                conquerCity ++;
             }
 
             for (int[] next : graph.get(vertex)) {
-                int nextVertx = next[0];
+                int nextVertex = next[0];
                 int nextWeight = next[1];
 
-                if (!visited[nextVertx]) {
-                    pq.offer(new int[] {nextVertx, nextWeight});
+                if (!visited[nextVertex]) {
+                    pq.offer(new int[] {nextVertex, nextWeight});
                 }
             }
         }
-        return totalWeight - maxWeight;
+        return totalWeight;
     }
 }
