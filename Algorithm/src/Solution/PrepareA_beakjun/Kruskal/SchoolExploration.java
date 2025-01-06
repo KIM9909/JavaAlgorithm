@@ -65,7 +65,7 @@ public class SchoolExploration {
         int upperCnt = 0;
         int cnt = 0;
 
-        while (!pq.isEmpty() && cnt < N) {
+        while (!pq.isEmpty() && cnt < N-1) {
             int[] current = pq.poll();
 
             if (find(current[0]) != find(current[1])) {
