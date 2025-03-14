@@ -1,9 +1,9 @@
-// 14427. 수열과 쿼리 15 (세그먼트 트리)
+// 14438. 수열과 쿼리 17 (세그먼트 트리)
 package Solution.PrepareA_beakjun.Tree;
 
 import java.io.*;
 import java.util.*;
-public class SequenceAndQuery15 {
+public class SequenceAndQuery17 {
     static int N, M;
     static int[] arr;
     static int[][] tree; // [value, index]를 저장
@@ -58,6 +58,27 @@ public class SequenceAndQuery15 {
         return tree[node];
     }
 
+    // 구간의 최솟값을 찾는 메서드
+    static int[] query(int node, int start, int end, int left, int right) {
+        if (right < start || end < left) {  // 범위를 벗어난 경우
+            return new int[]{Integer.MAX_VALUE, 0};
+        }
+
+        if (left <= start && end <= right) {  // 완전히 포함되는 경우
+            return tree[node];
+        }
+
+        int mid = (start + end) / 2;
+        int[] leftResult = query(node*2, start, mid, left, right);
+        int[] rightResult = query(node*2+1, mid+1, end, left, right);
+
+        if (leftResult[0] <= rightResult[0]) {
+            return leftResult;
+        } else {
+            return rightResult;
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -91,7 +112,10 @@ public class SequenceAndQuery15 {
                 update(1, 1, N, idx, val);  // 세그먼트 트리 업데이트
                 arr[idx] = val;
             } else {  // 최솟값의 인덱스 출력 쿼리
-                sb.append(tree[1][1]).append('\n');
+                int left = Integer.parseInt(st.nextToken());
+                int right = Integer.parseInt(st.nextToken());
+                int[] result = query(1, 1, N, left, right);
+                sb.append(result[0]).append('\n');
             }
         }
         System.out.println(sb);
