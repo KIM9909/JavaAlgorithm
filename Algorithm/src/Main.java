@@ -2,31 +2,20 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int N;
-    static String F, A;
-
+    static int sum;
+    static int res;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        N = Integer.parseInt(br.readLine());
-
-        int cnt = 0;
-        ArrayList<String> lst = new ArrayList<>();
-
         st = new StringTokenizer(br.readLine());
-        for (int i=0; i<N; i++) {
-            F = st.nextToken();
-            lst.add(F);
+        for (int i=0; i<5; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            sum += num * num;
         }
 
-        A = br.readLine();
+        res = sum % 10;
 
-        for (String tempLst : lst) {
-            if (tempLst.equals(A)) {
-                cnt++;
-            }
-        }
-        System.out.println(cnt);
+        System.out.println(res);
     }
 }
