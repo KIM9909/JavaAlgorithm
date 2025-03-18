@@ -2,20 +2,20 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int sum;
-    static int res;
+    static int N;
+    static long sum = 1;
+    static long ans;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
 
-        st = new StringTokenizer(br.readLine());
-        for (int i=0; i<5; i++) {
-            int num = Integer.parseInt(st.nextToken());
-            sum += num * num;
+        N = Integer.parseInt(br.readLine());
+
+        for (int i=0; i<N; i++) {
+            sum = sum * (N-i);
         }
 
-        res = sum % 10;
+        ans = sum / (60 * 60 * 24 * 7);
 
-        System.out.println(res);
+        System.out.println(ans);
     }
 }
