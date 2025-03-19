@@ -4,7 +4,6 @@ import java.io.*;
 public class Main {
     static int N;
     static long sum = 1;
-    static long ans;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -14,8 +13,6 @@ public class Main {
             sum = sum * (N-i);
         }
 
-        ans = sum / (60 * 60 * 24 * 7);
-
-        System.out.println(ans);
+        System.out.println(sum);
     }
 }
