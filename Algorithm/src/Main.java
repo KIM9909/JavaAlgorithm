@@ -2,17 +2,14 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    static int N;
-    static long sum = 1;
+    static long N, M;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
-        N = Integer.parseInt(br.readLine());
+        System.out.println(Math.abs(N-M));
 
-        for (int i=0; i<N; i++) {
-            sum = sum * (N-i);
-        }
-
-        System.out.println(sum);
     }
 }
