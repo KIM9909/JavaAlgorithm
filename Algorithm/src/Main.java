@@ -18,6 +18,6 @@ public class Main {
         }
 
         System.out.println("비와이");
-        System.out.println("");
+        System.out.println(0);
     }
 }
