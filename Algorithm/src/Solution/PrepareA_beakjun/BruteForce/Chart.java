@@ -23,8 +23,8 @@ public class Chart {
 
         // 가능한 모든 배열 순서를 시도
         boolean[] used = new boolean[N];
-        int[] permutation = new int[N];
-        generatePerm(permutation, used, 0);
+        int[] perm = new int[N];
+        generatePerm(perm, used, 0);
 
         System.out.println(maxLines);
     }
@@ -34,6 +34,7 @@ public class Chart {
         if (depth == N) {
             // 현재 순열에서 중심을 지나는 선의 개수 계산
             int lines = countLines(perm);
+            // 선의 최대 개수
             maxLines = Math.max(maxLines, lines);
             return;
         }
@@ -49,12 +50,12 @@ public class Chart {
     }
 
     // 원의 중심을 지나는 선의 개수 계산
-    static int countLines(int[] arrangement) {
+    static int countLines(int[] perm) {
         ArrayList<Integer> sum_arr = new ArrayList<>();
 
         int sum_ratio = 0;
         for (int i = 0; i < N; i++) {
-            sum_ratio += arrangement[i];
+            sum_ratio += perm[i];
             sum_arr.add(sum_ratio);
         }
 
@@ -65,7 +66,7 @@ public class Chart {
             for (int j = i + 1; j < sum_arr.size(); j++) {
                 int arc = sum_arr.get(j) - sum_arr.get(i);
 
-                // 정확히 반대편에 있는지 확인
+                // 반대편에 있는지 확인
                 if (arc == 50) {
                     cnt++;
                 }
