@@ -1,4 +1,3 @@
-
 import java.io.*;
 
 public class Main {
@@ -9,7 +8,9 @@ public class Main {
         N = Integer.parseInt(br.readLine());
 
         for (int i=0; i<N; i++) {
-            System.out.println(N-i);
+            String word = br.readLine();
+
+            System.out.println(word.toLowerCase());
         }
     }
 }
