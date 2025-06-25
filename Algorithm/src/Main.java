@@ -1,20 +1,25 @@
 import java.io.*;
+import java.util.Objects;
 
 public class Main {
-    static int total;
-    static int nineBooks = 0;
-    static int res;
+    static int cnt = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line;
 
-        total = Integer.parseInt(br.readLine());
+        while (!Objects.equals(line = br.readLine(), "#")) {
+            String english = line;
 
-        for (int i=0; i<9; i++) {
-            nineBooks += Integer.parseInt(br.readLine());
+            for (int i=0; i<english.length(); i++) {
+                if (english.charAt(i) == 'a' || english.charAt(i) == 'e' || english.charAt(i) == 'i' || english.charAt(i) == 'o' || english.charAt(i) == 'u' ||
+                english.charAt(i) == 'A' || english.charAt(i) == 'E' || english.charAt(i) == 'I' || english.charAt(i) == 'O' || english.charAt(i) == 'U') {
+                    cnt ++;
+                }
+            }
+
+            System.out.println(cnt);
+
+            cnt = 0;
         }
-
-        res = total - nineBooks;
-
-        System.out.println(res);
     }
 }
