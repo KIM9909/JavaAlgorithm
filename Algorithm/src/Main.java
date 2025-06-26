@@ -1,25 +1,38 @@
 import java.io.*;
-import java.util.Objects;
+import java.util.*;
 
 public class Main {
-    static int cnt = 0;
+    static int M, X, Y;
+    static int[] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String line;
+        StringTokenizer st;
 
-        while (!Objects.equals(line = br.readLine(), "#")) {
-            String english = line;
+        M = Integer.parseInt(br.readLine());
+        arr = new int[4];
 
-            for (int i=0; i<english.length(); i++) {
-                if (english.charAt(i) == 'a' || english.charAt(i) == 'e' || english.charAt(i) == 'i' || english.charAt(i) == 'o' || english.charAt(i) == 'u' ||
-                english.charAt(i) == 'A' || english.charAt(i) == 'E' || english.charAt(i) == 'I' || english.charAt(i) == 'O' || english.charAt(i) == 'U') {
-                    cnt ++;
-                }
+        for (int i=1; i<=3; i++) {
+            if (i == 1) {
+                arr[i] = 1;
+            } else {
+                arr[i] = 0;
             }
+        }
 
-            System.out.println(cnt);
+        int temp;
+        for (int i=0; i<M; i++) {
+            st = new StringTokenizer(br.readLine());
+            X = Integer.parseInt(st.nextToken());
+            Y = Integer.parseInt(st.nextToken());
+            temp = arr[X];
+            arr[X] = arr[Y];
+            arr[Y] = temp;
+        }
 
-            cnt = 0;
+        for (int i=0; i<4; i++) {
+            if (arr[i] == 1) {
+                System.out.println(i);
+            }
         }
     }
 }
