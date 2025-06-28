@@ -2,27 +2,26 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static String N;
+    static int x,y,w,h;
+    static int minDistance = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        String line;
+        st = new StringTokenizer(br.readLine());
+        x = Integer.parseInt(st.nextToken());
+        y = Integer.parseInt(st.nextToken());
+        w = Integer.parseInt(st.nextToken());
+        h = Integer.parseInt(st.nextToken());
 
-        while (!(line = br.readLine()).equals("0")) {
-            N = line;
-            int width = 1;
-            for (int i=0; i<N.length(); i++) {
-                if (N.charAt(i) == '1') {
-                    width += 2;
-                } else if (N.charAt(i) == '0') {
-                    width += 4;
-                } else {
-                    width += 3;
-                }
-                width += 1;
-            }
+        int xMin = 0;
+        xMin = Math.min(x-0, w-x);
 
-            System.out.println(width);
-        }
+        int yMin = 0;
+        yMin = Math.min(y-0, h-y);
+
+        minDistance = Math.min(xMin, yMin);
+
+        System.out.println(minDistance);
     }
 }
