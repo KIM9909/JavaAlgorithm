@@ -2,26 +2,43 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int x,y,w,h;
-    static int minDistance = 0;
+    static int[][] arr;
+    static int maxNum;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        st = new StringTokenizer(br.readLine());
-        x = Integer.parseInt(st.nextToken());
-        y = Integer.parseInt(st.nextToken());
-        w = Integer.parseInt(st.nextToken());
-        h = Integer.parseInt(st.nextToken());
+        arr = new int[10][10];
+        maxNum = Integer.MIN_VALUE;
 
-        int xMin = 0;
-        xMin = Math.min(x-0, w-x);
+        for (int i=1; i<10; i++) {
+            st = new StringTokenizer(br.readLine());
+            for (int j=1; j<10; j++) {
+                int number = Integer.parseInt(st.nextToken());
+                arr[i][j] = number;
+            }
+        }
 
-        int yMin = 0;
-        yMin = Math.min(y-0, h-y);
+        for (int i=1; i<10; i++) {
+            for (int j=1; j<10; j++) {
+                if (arr[i][j] > maxNum) {
+                    maxNum = arr[i][j];
+                }
+            }
+        }
 
-        minDistance = Math.min(xMin, yMin);
+        System.out.println(maxNum);
 
-        System.out.println(minDistance);
+        outer: for (int i=1; i<10; i++) {
+            for (int j=1; j<10; j++) {
+                if (maxNum == arr[i][j]) {
+                   sb.append(i).append(" ").append(j);
+                   break outer;
+                }
+            }
+        }
+
+        System.out.println(sb);
     }
 }
