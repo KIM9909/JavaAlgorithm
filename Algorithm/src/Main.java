@@ -2,43 +2,45 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int[][] arr;
-    static int maxNum;
+    static int N, M;
+    static int[] boxSize, bookSize;
+    static int waste = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        arr = new int[10][10];
-        maxNum = Integer.MIN_VALUE;
+        st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
-        for (int i=1; i<10; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j=1; j<10; j++) {
-                int number = Integer.parseInt(st.nextToken());
-                arr[i][j] = number;
+        boxSize = new int[N];
+        bookSize = new int[M];
+
+        st = new StringTokenizer(br.readLine());
+        for (int i=0; i<N; i++) {
+            boxSize[i] = Integer.parseInt(st.nextToken());
+        }
+
+        st = new StringTokenizer(br.readLine());
+        for (int i=0; i<M; i++) {
+            bookSize[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int boxIndex = 0;
+        int bookIndex = 0;
+        while (boxIndex < N && bookIndex < M) {
+            if (boxSize[boxIndex] - bookSize[bookIndex] >= 0) {
+                boxSize[boxIndex] -= bookSize[bookIndex];
+                bookIndex ++;
+            } else {
+                boxIndex ++;
             }
         }
 
-        for (int i=1; i<10; i++) {
-            for (int j=1; j<10; j++) {
-                if (arr[i][j] > maxNum) {
-                    maxNum = arr[i][j];
-                }
-            }
+        for (int i=0; i<N; i++) {
+            waste += boxSize[i];
         }
 
-        System.out.println(maxNum);
-
-        outer: for (int i=1; i<10; i++) {
-            for (int j=1; j<10; j++) {
-                if (maxNum == arr[i][j]) {
-                   sb.append(i).append(" ").append(j);
-                   break outer;
-                }
-            }
-        }
-
-        System.out.println(sb);
+        System.out.println(waste);
     }
 }
