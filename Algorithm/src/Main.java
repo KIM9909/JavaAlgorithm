@@ -2,24 +2,21 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    static int T;
     static String word;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb;
 
-        word = br.readLine();
+        T = Integer.parseInt(br.readLine());
 
-        String res = "";
+        for (int i=0; i<T; i++) {
+            sb = new StringBuilder();
+            word = br.readLine();
 
-        for (int i=0; i<word.length(); i++) {
-            char w = word.charAt(i);
+            sb.append(word.charAt(0)).append(word.charAt(word.length() - 1));
 
-            if (Character.isUpperCase(w)) {
-                res += Character.toLowerCase(w);
-            } else {
-                res += Character.toUpperCase(w);
-            }
+            System.out.println(sb.toString());
         }
-
-        System.out.println(res);
     }
 }
