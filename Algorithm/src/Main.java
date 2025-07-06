@@ -1,22 +1,14 @@
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
-    static int T;
-    static String word;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb;
+        LocalDate now = LocalDate.now();
 
-        T = Integer.parseInt(br.readLine());
-
-        for (int i=0; i<T; i++) {
-            sb = new StringBuilder();
-            word = br.readLine();
-
-            sb.append(word.charAt(0)).append(word.charAt(word.length() - 1));
-
-            System.out.println(sb.toString());
-        }
+        System.out.println(now);
     }
 }
