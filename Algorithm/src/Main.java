@@ -1,14 +1,16 @@
 import java.io.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
+import java.math.BigInteger;
 
 public class Main {
+    static BigInteger A, B;
     public static void main(String[] args) throws IOException {
-        LocalDate now = LocalDate.now();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        System.out.println(now);
+        A = new BigInteger(st.nextToken());
+        B = new BigInteger(st.nextToken());
+
+        System.out.println(A.multiply(B));
     }
 }
