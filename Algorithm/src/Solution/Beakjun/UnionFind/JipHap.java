@@ -1,5 +1,5 @@
 // 1717. 집합의 표현 (유니온 파인드)
-package Solution.Beakjun;
+package Solution.Beakjun.UnionFind;
 
 import java.util.*;
 import java.io.*;
