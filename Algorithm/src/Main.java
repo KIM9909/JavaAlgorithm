@@ -1,16 +1,28 @@
 import java.io.*;
 import java.util.*;
-import java.math.BigInteger;
 
 public class Main {
-    static BigInteger A, B;
+    static int N;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        A = new BigInteger(st.nextToken());
-        B = new BigInteger(st.nextToken());
+        N = Integer.parseInt(br.readLine());
 
-        System.out.println(A.multiply(B));
+        for (int i=0; i<N; i++) {
+            StringBuilder sb = new StringBuilder();
+
+            String str = br.readLine();
+
+            String cur = "";
+            for (int j=0; j<str.length(); j++) {
+                if (!cur.equals(String.valueOf(str.charAt(j)))) {
+                    sb.append(str.charAt(j));
+
+                    cur = String.valueOf(str.charAt(j));
+                }
+            }
+
+            System.out.println(sb.toString());
+        }
     }
 }
