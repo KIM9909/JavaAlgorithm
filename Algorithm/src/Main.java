@@ -2,27 +2,20 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int N;
+    static int T;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        N = Integer.parseInt(br.readLine());
+        T = Integer.parseInt(br.readLine());
 
-        for (int i=0; i<N; i++) {
-            StringBuilder sb = new StringBuilder();
+        for (int i=0; i<T; i++) {
+            st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
 
-            String str = br.readLine();
-
-            String cur = "";
-            for (int j=0; j<str.length(); j++) {
-                if (!cur.equals(String.valueOf(str.charAt(j)))) {
-                    sb.append(str.charAt(j));
-
-                    cur = String.valueOf(str.charAt(j));
-                }
-            }
-
-            System.out.println(sb.toString());
+            System.out.println("Case " + (i+1) + ": " + (x + y));
         }
+
     }
 }
