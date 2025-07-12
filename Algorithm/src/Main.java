@@ -3,6 +3,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("고려대학교");
+        System.out.println("A");
     }
 }
