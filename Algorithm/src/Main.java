@@ -4,26 +4,12 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
 
-        List<Integer> arr = new ArrayList<>();
+        int N = Integer.parseInt(br.readLine());
 
-        st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        int c = Integer.parseInt(st.nextToken());
-
-        arr.add(a);
-        arr.add(b);
-        arr.add(c);
-
-        Collections.sort(arr);
-
-        for (int num : arr) {
-            sb.append(num).append(" ");
+        for (int i=1; i<=N; i++) {
+            String text = br.readLine();
+            System.out.println(i + ". " + text);
         }
-
-        System.out.println(sb);
     }
 }
