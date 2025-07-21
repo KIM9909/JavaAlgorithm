@@ -2,29 +2,25 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int info, math, science, english;
+    static int L, P;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int maxScore = Integer.MIN_VALUE;
-        int sum = 0;
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        for (int i=0; i<2; i++) {
-            st = new StringTokenizer(br.readLine());
-            info = Integer.parseInt(st.nextToken());
-            math = Integer.parseInt(st.nextToken());
-            science = Integer.parseInt(st.nextToken());
-            english = Integer.parseInt(st.nextToken());
-            sum += info;
-            sum += math;
-            sum += science;
-            sum += english;
+        st = new StringTokenizer(br.readLine());
+        L = Integer.parseInt(st.nextToken());
+        P = Integer.parseInt(st.nextToken());
 
-            maxScore = Math.max(maxScore, sum);
+        int people = L * P;
 
-            sum = 0;
+        st = new StringTokenizer(br.readLine());
+        for (int i=0; i<5; i++) {
+            int differ = Integer.parseInt(st.nextToken()) - people;
+
+            sb.append(differ).append(" ");
         }
 
-        System.out.println(maxScore);
+        System.out.println(sb);
     }
 }
