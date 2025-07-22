@@ -2,25 +2,29 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int L, P;
+    static String name;
+    static int age, weight;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
+        String line;
 
-        st = new StringTokenizer(br.readLine());
-        L = Integer.parseInt(st.nextToken());
-        P = Integer.parseInt(st.nextToken());
+        while ((line = br.readLine()) != null) {
+            st = new StringTokenizer(line);
+            name = st.nextToken();
+            age = Integer.parseInt(st.nextToken());
+            weight = Integer.parseInt(st.nextToken());
 
-        int people = L * P;
+            if (name.equals("#")) {
+                break;
+            }
 
-        st = new StringTokenizer(br.readLine());
-        for (int i=0; i<5; i++) {
-            int differ = Integer.parseInt(st.nextToken()) - people;
-
-            sb.append(differ).append(" ");
+            if (age > 17 || weight >= 80) {
+                System.out.println(name + " Senior");
+            } else {
+                System.out.println(name + " Junior");
+            }
         }
-
-        System.out.println(sb);
+        br.close();
     }
 }
