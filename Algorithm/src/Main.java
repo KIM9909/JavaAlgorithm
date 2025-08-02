@@ -2,33 +2,26 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static List<Integer> firstSection;
-    static List<Integer> secondSection;
-    static int firstSum;
-    static int secondSum;
+    static int N;
+    static String num;
+    static char[] nums;
+    static int sum = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        firstSection = new ArrayList<>();
-        secondSection = new ArrayList<>();
+        N = Integer.parseInt(br.readLine());
+        num = br.readLine();
 
-        for (int i=0; i<4; i++) {
-            firstSection.add(Integer.parseInt(br.readLine()));
+        nums = new char[N];
+
+        for (int i=0; i<N; i++) {
+            nums[i] = num.charAt(i);
         }
 
-        for (int i=0; i<2; i++) {
-            secondSection.add(Integer.parseInt(br.readLine()));
+        for (char num : nums) {
+            sum += Integer.parseInt(String.valueOf(num));
         }
 
-        firstSection.sort(Collections.reverseOrder());
-        secondSection.sort(Collections.reverseOrder());
-
-        for (int i=0; i<3; i++) {
-            firstSum += firstSection.get(i);
-        }
-
-        secondSum += secondSection.get(0);
-
-        System.out.println(firstSum + secondSum);
+        System.out.println(sum);
     }
 }
