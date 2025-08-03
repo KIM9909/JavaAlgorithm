@@ -2,26 +2,51 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int N;
-    static String num;
-    static char[] nums;
-    static int sum = 0;
+    static int N, M, K;
+    static int[] front, back;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        N = Integer.parseInt(br.readLine());
-        num = br.readLine();
+        st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
 
-        nums = new char[N];
+        front = new int[N];
+        back = new int[N];
 
-        for (int i=0; i<N; i++) {
-            nums[i] = num.charAt(i);
+        int frontO = 0;
+        int backO = 0;
+        int frontX = 0;
+        int backX = 0;
+
+        for (int i=0; i<M; i++) {
+            front[i] = 1;
         }
 
-        for (char num : nums) {
-            sum += Integer.parseInt(String.valueOf(num));
+        for (int i=0; i<K; i++) {
+            back[i] = 1;
         }
 
-        System.out.println(sum);
+        for (int num : front) {
+            if (num == 1) {
+                frontO ++;
+            } else {
+                frontX ++;
+            }
+        }
+
+        for (int num : back) {
+            if (num == 1) {
+                backO ++;
+            } else {
+                backX ++;
+            }
+        }
+        int cntO = Math.min(frontO, backO);
+        int cntX = Math.min(frontX, backX);
+
+        System.out.println(cntO + cntX);
     }
 }
