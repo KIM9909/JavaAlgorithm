@@ -2,16 +2,15 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static String word;
+    static int num;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        word = br.readLine();
+        num = Integer.parseInt(br.readLine());
 
-        if (word.equals("N") || word.equals("n")) {
-            System.out.println("Naver D2");
-        } else {
-            System.out.println("Naver Whale");
-        }
+        sb.append((int) (num * 0.78)).append(" ").append((int) (num - num * 0.2 * 0.22));
+
+        System.out.println(sb);
     }
 }
