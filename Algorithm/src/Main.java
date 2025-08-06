@@ -2,15 +2,21 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int num;
+    static int N, K;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
 
-        num = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
 
-        sb.append((int) (num * 0.78)).append(" ").append((int) (num - num * 0.2 * 0.22));
+        for (int i=0; i<N; i++) {
+            st = new StringTokenizer(br.readLine());
+            int num1 = Integer.parseInt(st.nextToken());
+            int num2 = Integer.parseInt(st.nextToken());
+        }
 
-        System.out.println(sb);
+        System.out.println("비와이");
     }
 }
