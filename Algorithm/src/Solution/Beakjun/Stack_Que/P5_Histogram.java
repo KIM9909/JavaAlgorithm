@@ -1,5 +1,5 @@
 package Solution.Beakjun.Stack_Que;
-// 1725. Platinum_5_히스토그램
+// 6549. Platinum_5_히스토그램에서 가장 큰 직사각형
 
 import java.util.*;
 import java.io.*;
@@ -8,17 +8,24 @@ public class P5_Histogram {
     static int[] heights;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        N = Integer.parseInt(br.readLine());
-        heights = new int[N];
+        while (true) {
+            st = new StringTokenizer(br.readLine());
+            N = Integer.parseInt(st.nextToken());
+            if (N != 0) {
+                heights = new int[N];
+                for (int i=0; i<N; i++) {
+                    heights[i] = Integer.parseInt(st.nextToken());
+                }
 
-        for (int i=0; i<N; i++) {
-            heights[i] = Integer.parseInt(br.readLine());
+                long res = findMax();
+
+                System.out.println(res);
+            } else {
+                break;
+            }
         }
-
-        long res = findMax();
-
-        System.out.println(res);
     }
 
     static long findMax() {
