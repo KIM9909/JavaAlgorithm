@@ -1,5 +1,5 @@
 // 11000. 강의실 배정 (그리디, 우선순위 큐)
-package Solution.Beakjun.Que;
+package Solution.Beakjun.Stack_Que;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package Solution.Beakjun.Tree;
+package Solution.Beakjun.Stack_Que;
 // 12846. Platinum_5_무서운 아르바이트
 
 import java.util.*;
