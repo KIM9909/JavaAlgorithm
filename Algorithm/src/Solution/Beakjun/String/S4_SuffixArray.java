@@ -1,5 +1,5 @@
 package Solution.Beakjun.String;
-// 11656. 접미사 배열
+// 11656. Silver_4_접미사 배열
 
 import java.util.*;
 import java.io.*;
