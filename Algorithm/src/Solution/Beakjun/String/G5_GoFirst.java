@@ -1,5 +1,5 @@
 package Solution.Beakjun.String;
-// 3655. 먼저 가세요
+// 3655. Gold_5_먼저 가세요
 
 import java.io.*;
 import java.util.*;
