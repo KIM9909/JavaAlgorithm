@@ -1,5 +1,5 @@
 package Solution.Beakjun.String;
-// 3613. Java vs C++
+// 3613. Silver3_Java vs C++
 
 import java.io.*;
 public class S3_JAVAvsCPP {
