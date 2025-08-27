@@ -2,31 +2,25 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static String[] arr;
-    static int cnt = 0;
+    static String N;
+    static Integer[] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        arr = new String[8];
+        N = br.readLine();
+        arr = new Integer[N.length()];
 
-        for (int i=0; i<8; i++) {
-            arr[i] = br.readLine();
+        for (int i=0; i<N.length(); i++) {
+            arr[i] = Integer.parseInt(String.valueOf(N.charAt(i)));
         }
 
-        for (int i=0; i<8; i++) {
-            for (int j=0; j<8; j++) {
-                if (i % 2 == 0) {
-                    if (j % 2 == 0 && arr[i].charAt(j) == 'F') {
-                        cnt ++;
-                    }
-                } else {
-                    if (j % 2 != 0 && arr[i].charAt(j) == 'F') {
-                        cnt ++;
-                    }
-                }
-            }
+        Arrays.sort(arr, Collections.reverseOrder());
+
+        for (int num : arr) {
+            sb.append(num);
         }
 
-        System.out.println(cnt);
+        System.out.println(sb.toString());
     }
 }
