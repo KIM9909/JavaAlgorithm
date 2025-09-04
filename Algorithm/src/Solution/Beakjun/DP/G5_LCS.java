@@ -25,6 +25,6 @@ public class G5_LCS {
             }
         }
 
-        System.out.println(dp[len1][len2])
+        System.out.println(dp[len1][len2]);
     }
 }
