@@ -1,5 +1,5 @@
 package Solution.Beakjun.Math;
-// 1065. 한수
+// 1065. Silver4_한수
 
 import java.io.*;
 public class S4_Hansoo {
