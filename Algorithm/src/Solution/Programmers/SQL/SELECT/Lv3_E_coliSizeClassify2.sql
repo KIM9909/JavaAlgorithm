@@ -8,3 +8,20 @@ SELECT
     END AS COLONY_NAME
 FROM ECOLI_DATA
 ORDER BY ID ASC;
+
+-- WITH NT AS (
+--     SELECT
+--         ID,
+--         NTILE(4) OVER (ORDER BY SIZE_OF_COLONY DESC) AS CHML
+--     FROM ECOLI_DATA
+-- )
+-- SELECT
+--     ID,
+--     CASE CHML
+--         WHEN 1 THEN 'CRITICAL'
+--         WHEN 2 THEN 'HIGH'
+--         WHEN 3 THEN 'MEDIUM'
+--         ELSE 'LOW'
+--         END AS COLONY_NAME
+-- FROM NT
+-- ORDER BY ID ASC;
