@@ -2,13 +2,18 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static int n;
+    static int A, B, C;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        n = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        A = Integer.parseInt(st.nextToken());
+        B = Integer.parseInt(st.nextToken());
+        C = Integer.parseInt(st.nextToken());
 
-        System.out.println(1);
-        System.out.println(0);
+        int res = B / A * 3;
+
+        System.out.println(res * C);
     }
 }
