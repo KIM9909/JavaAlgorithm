@@ -1,7 +1,6 @@
-package Solution.Programmers.Algo.Array;
+package Solution.Programmers.Algo.Sort;
 // Lv.2 H-Index
 
-import java.io.*;
 import java.util.*;
 class H_Index {
     public int solution(int[] citations) {

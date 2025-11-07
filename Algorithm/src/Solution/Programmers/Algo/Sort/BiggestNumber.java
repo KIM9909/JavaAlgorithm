@@ -1,4 +1,4 @@
-package Solution.Programmers.Algo.Array;
+package Solution.Programmers.Algo.Sort;
 // Lv.2 가장 큰 수
 
 import java.util.*;

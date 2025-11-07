@@ -1,4 +1,4 @@
-package Solution.Programmers.Algo.Array;
+package Solution.Programmers.Algo.Sort;
 // Lv.1 K 번째수
 
 import java.util.*;
