@@ -1,34 +1,51 @@
 import java.io.*;
 import java.util.*;
+
 public class Main {
-    static int T;
+    static int[] arr;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
 
-        T = Integer.parseInt(br.readLine());
+        arr = new int[5];
 
-        for (int t=0; t<T; t++) {
-            String line = br.readLine();
-
-            String[] words = line.split(" ");
-
-            for (String word : words) {
-                if (word.length() == 1) {
-                    sb.append(word).append(" ");
-                } else {
-                    StringBuilder str = new StringBuilder();
-                    for (int i=word.length()-1; i>=0; i--) {
-                        str.append(word.charAt(i));
-                    }
-
-                    sb.append(str).append(" ");
-                }
-            }
-
-            sb.append("\n");
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 5; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        System.out.println(sb.toString());
+        Arrays.sort(arr);
+
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = i + 1; j < 5; j++) {
+                for (int k = j + 1; k < 5; k++) {
+                    int lcm1 = lcm(arr[i], arr[j]);
+                    int lcm2 = lcm(lcm1, arr[k]);
+
+                    result = Math.min(result, lcm2);
+                }
+            }
+        }
+
+        System.out.println(result);
+    }
+
+    // 최대공약수
+    static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    // 최소공배수
+    static int lcm(int a, int b) {
+
+        return (a * b) / gcd(a, b);
     }
 }
